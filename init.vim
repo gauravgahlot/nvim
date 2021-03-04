@@ -8,7 +8,7 @@ filetype off		" required
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree' 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -36,7 +36,7 @@ colorscheme gruvbox
 :set laststatus=2        " use 2 lines for the status bar
 :set matchtime=2         " show matching bracket for 0.2 seconds
 :set matchpairs+=<:>     " specially for html
-":set colorcolumn=80
+" :set colorcolumn=80
 :set nowrap
 :set smartcase
 :set hlsearch
@@ -59,7 +59,7 @@ map <silent> <C-n> :NERDTreeFocus<CR>
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 " don't give |ins-completion-menu| messages.
@@ -122,4 +122,18 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC] (coc in this case)
 let g:go_def_mapping_enabled = 0
+
+"" -------------------------------------------------------------------------------------------------
+" NERDTree settings
+" -------------------------------------------------------------------------------------------------
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * silent NERDTreeMirror
+
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
+
+" Start NERDTree and put the cursor back in the other window.
+" autocmd VimEnter * NERDTree | wincmd p
+
 
